@@ -22,6 +22,7 @@ jobs:
 
         script: |
             cd /home/ec2-user/app
-            git pull
-            sudo cp -r * /var/www/html/
+            git pull origin main
+            sudo rm -rf /var/www/html/*
+            sudo cp -r source/* /var/www/html/
             sudo systemctl restart apache2 || sudo systemctl restart httpd
